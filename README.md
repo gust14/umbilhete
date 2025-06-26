@@ -24,7 +24,7 @@ Este projeto foi construído do zero, focando em tecnologias essenciais do front
 
 * **HTML5** (Estruturação semântica e tags de SEO)
 * **CSS3** (Animações, Flexbox, Media Queries para responsividade)
-* **JavaScript (Vanilla JS)** (Manipulação do DOM, lógica, chamadas assíncronas)
+* **JavaScript** (Manipulação do DOM, lógica, chamadas assíncronas)
 
 **APIs Consumidas:**
 
