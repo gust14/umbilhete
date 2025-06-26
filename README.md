@@ -85,4 +85,4 @@ O aprendizado nunca para! Algumas ideias para o futuro:
 
 ## 💬 Contato
 
-Feito com muito carinho e muitas abas de documentação abertas! Se curtiu o projeto, me encontre no [LinkedIn](https://www.linkedin.com/in/seu-usuario/) ou dê uma olhada nos meus outros projetos no [GitHub](https://github.com/gust14).
+Feito com muito carinho e muitas abas de documentação abertas! Se curtiu o projeto, me encontre no [LinkedIn](https://www.linkedin.com/in/gustavo-solf/) ou dê uma olhada nos meus outros projetos no [GitHub](https://github.com/gust14).
