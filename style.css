@@ -1,0 +1,188 @@
+/* Configurações Globais e Variáveis de Cor */
+:root {
+    --amarelo: #FFD700;
+    --preto: #2c2c2c;
+    --branco: #ffffff;
+    --cinza-claro: #f4f4f4;
+    --sombra: rgba(0, 0, 0, 0.1);
+    --vermelho-erro: #e74c3c;
+}
+
+body {
+    /* Adicionamos 'Noto Color Emoji' para garantir a renderização correta dos emojis (bandeiras) */
+    font-family: 'Patrick Hand', 'Noto Color Emoji', cursive;
+    background-color: var(--cinza-claro);
+    color: var(--preto);
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    position: relative;
+    box-sizing: border-box;
+}
+
+#lang-switcher {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+    z-index: 10;
+}
+#lang-switcher:hover {
+    transform: scale(1.1);
+}
+
+/* Estrutura das Telas */
+.tela {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 420px;
+    padding: 25px;
+    background: var(--branco);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--sombra);
+    animation: fadeIn 0.5s ease-in-out;
+}
+.tela.ativa {
+    display: flex;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Estilos da Tela Inicial */
+.logo { font-size: 2.5rem; font-weight: bold; color: var(--preto); margin-bottom: 10px; }
+h1 { font-size: 1.5rem; margin-bottom: 25px; }
+.form-grupo { width: 100%; margin-bottom: 15px; text-align: left; }
+.form-grupo label { display: block; margin-bottom: 5px; font-size: 1.2rem; }
+input[type="text"], input[type="date"] { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; font-family: 'Patrick Hand', cursive; font-size: 1.2rem; box-sizing: border-box; transition: border-color 0.3s; }
+input:focus { outline: none; border-color: var(--amarelo); }
+
+/* Melhoria na Validação de Erro (UX) */
+input.error {
+    border-color: var(--vermelho-erro);
+    animation: shake 0.4s;
+}
+.error-message {
+    color: var(--vermelho-erro);
+    font-size: 1rem;
+    text-align: center;
+    height: 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+#pegar-bilhete-btn { width: 100%; padding: 15px; border: none; background-color: var(--amarelo); color: var(--preto); font-family: 'Patrick Hand', cursive; font-size: 1.5rem; border-radius: 10px; cursor: pointer; transition: transform 0.2s, background-color 0.2s; }
+#pegar-bilhete-btn:hover { transform: scale(1.05); background-color: #ffc400; }
+#pegar-bilhete-btn:disabled { background-color: #ccc; cursor: wait; }
+
+/* Animação de Impressão e Layout Flexível do Bilhete */
+.printer-slot {
+    width: 100%;
+    min-height: 280px; /* Altura MÍNIMA, mas pode crescer se o texto for longo */
+    background: linear-gradient(to bottom, #444, #222);
+    border-radius: 5px;
+    padding: 10px 5px 0 5px;
+    box-shadow: inset 0 4px 6px rgba(0,0,0,0.4);
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+}
+.bilhete-container {
+    width: 100%;
+    /* A altura fixa foi REMOVIDA para permitir que o bilhete se ajuste ao conteúdo */
+    background-color: #fff9e6;
+    padding: 20px;
+    border: 1px dashed var(--preto);
+    box-sizing: border-box;
+    position: relative;
+    transform: translateY(100%);
+    animation: print-effect 1.5s forwards ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+@keyframes print-effect {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.bilhete-header { font-size: 1.4rem; margin-top: 0; }
+.bilhete-mensagem { font-size: 1.6rem; line-height: 1.4; margin: 15px 0; min-height: 60px; }
+/* Novo estilo para a mensagem do horóscopo */
+.bilhete-horoscopo {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #555;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+    margin-top: 15px;
+}
+.bilhete-fechamento { font-size: 2rem; text-align: right; margin-bottom: 0; margin-top:15px; }
+.botoes-acao { margin-top: 20px; width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.botoes-acao button, .botao-social { padding: 12px; border-radius: 10px; font-family: 'Patrick Hand', cursive; font-size: 1.2rem; cursor: pointer; text-decoration: none; border: 2px solid var(--preto); background: transparent; color: var(--preto); transition: all 0.2s; }
+.botoes-acao button:hover, .botao-social:hover { background: var(--preto); color: var(--branco); }
+#baixar-btn { background: var(--amarelo); border-color: var(--amarelo); color: var(--preto); }
+#baixar-btn:hover { background: #ffc400; }
+
+/* Modal de Aviso */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; justify-content: center; align-items: center; padding: 20px; z-index: 1000; box-sizing: border-box; }
+.modal-overlay.ativo { display: flex; }
+.modal-conteudo { background-color: #fff9e6; padding: 30px; border-radius: 15px; text-align: center; max-width: 380px; border: 1px dashed var(--preto); animation: fadeIn 0.3s; }
+.modal-icone { font-size: 3rem; }
+.contador { font-size: 1.2rem; background-color: #eee; padding: 10px; border-radius: 8px; margin-top: 15px; }
+#fechar-modal-btn { margin-top: 20px; padding: 10px 20px; background: var(--amarelo); border: none; font-family: 'Patrick Hand', cursive; font-size: 1.2rem; border-radius: 8px; cursor: pointer; }
+
+/* Design Responsivo para Mobile */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+        align-items: flex-start; /* Alinha no topo em telas pequenas */
+    }
+    .tela {
+        padding: 20px;
+        max-width: 100%;
+        margin: 10px;
+        box-sizing: border-box;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+    #lang-switcher {
+        font-size: 1.5rem;
+        top: 10px;
+        right: 10px;
+    }
+    .bilhete-header {
+        font-size: 1.2rem;
+    }
+    .bilhete-mensagem {
+        font-size: 1.4rem;
+    }
+    .bilhete-horoscopo {
+        font-size: 1.1rem;
+    }
+    .botoes-acao button, .botao-social {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+}

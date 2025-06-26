@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>UmBilhete - Seu Recado Diário Personalizado</title>
+
+    <meta name="description" content="Comece seu dia com uma mensagem personalizada! Receba um conselho inspirador e seu horóscopo diário em um bilhete virtual feito para você. Gere o seu agora!">
+    <meta name="keywords" content="horóscopo, signo, mensagem, motivação, recado, bilhete, diário, inspiração">
+    
+    <meta property="og:title" content="UmBilhete - Seu Recado Diário Personalizado">
+    <meta property="og:description" content="Gere um bilhete virtual com um conselho e seu horóscopo do dia!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.com"> <meta property="og:image" content="https://i.imgur.com/g8eH5aG.png"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UmBilhete - Seu Recado Diário Personalizado">
+    <meta name="twitter:description" content="Gere um bilhete virtual com um conselho e seu horóscopo do dia!">
+    <meta name="twitter:image" content="https://i.imgur.com/g8eH5aG.png"> <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Patrick+Hand&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    
+    <div id="lang-switcher">🇧🇷</div>
+
+    <main id="tela-inicial" class="tela ativa">
+        <div class="logo">UmBilhete 📝</div>
+        <h1 data-key="main_title">Comece seu dia com uma mensagem especial!</h1>
+
+        <div class="form-grupo">
+            <label for="nome-input" data-key="name_label">✏️ Seu nome</label>
+            <input type="text" id="nome-input" data-key-placeholder="name_placeholder" placeholder="Como podemos te chamar?">
+        </div>
+        <div class="form-grupo">
+            <label for="data-nascimento-input" data-key="birthdate_label">🎂 Sua data de nascimento</label>
+            <input type="date" id="data-nascimento-input">
+        </div>
+        
+        <span id="error-message" class="error-message"></span>
+
+        <button id="pegar-bilhete-btn" data-key="main_button">Pegar meu bilhete! ✨</button>
+    </main>
+
+    <section id="tela-bilhete" class="tela">
+        <div class="printer-slot">
+            <div class="bilhete-container" id="bilhete-para-baixar">
+                <p class="bilhete-header" id="bilhete-header"></p>
+                <p class="bilhete-mensagem" id="bilhete-mensagem"></p>
+                <p class="bilhete-horoscopo" id="bilhete-horoscopo"></p>
+                <p class="bilhete-fechamento">💖</p>
+            </div>
+        </div>
+        <div class="botoes-acao">
+            <button id="baixar-btn" data-key="download_button">Baixar Imagem 📥</button>
+            <a id="whatsapp-btn" href="#" target="_blank" class="botao-social" data-key="whatsapp_button">Compartilhar no WhatsApp</a>
+            <button id="voltar-btn" data-key="back_button">Pegar outro dia</button>
+        </div>
+    </section>
+
+    <div id="modal-aviso" class="modal-overlay">
+        <div class="modal-conteudo">
+            <span class="modal-icone">🤫</span>
+            <h2 data-key="modal_title">Seu bilhete de amanhã já está sendo escrito!</h2>
+            <p id="modal-mensagem"></p>
+            <p class="contador" id="contador"></p>
+            <button id="fechar-modal-btn" data-key="modal_button">Entendido! 👍</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
