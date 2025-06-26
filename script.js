@@ -117,9 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ]);
         
         bilheteMensagem.textContent = `"${translatedAdvice}"`;
-        bilheteHoroscopo.textContent = `Astrologia: ${translatedHoroscope}`;
+        bilheteHoroscopo.textContent = `Horóscopo: ${translatedHoroscope}`;
         
-        const fullMessage = `✨ Meu bilhete do dia:\n\nConselho: "${translatedAdvice}"\n\nHoróscopo: "${translatedHoroscope}"\n\nPegue o seu também no UmBilhete!`;
+        const fullMessage = `✨ Meu bilhete do dia:\n\nConselho: "${translatedAdvice}"\n\nHoróscopo: "${translatedHoroscope}"\n\nPegue o seu também! 👇\nhttps://umbilhete.vercel.app/`;
         whatsappBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(fullMessage)}`;
     };
 
